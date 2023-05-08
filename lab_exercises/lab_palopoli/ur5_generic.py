@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on 3 May  2022
-
-@author: mfocchi
 """
 
 from __future__ import print_function
@@ -66,9 +63,7 @@ class Ur5Generic(BaseControllerFixed):
 
         self.controller_manager = ControllerManager(conf.robot_params[self.robot_name])
 
-        self.world_name = None # only the workbench
-        #self.world_name = 'empty.world'
-        #self.world_name = 'palopoli.world'
+        self.world_name = 'lego.world'
 
         print("Initialized ur5 generic  controller---------------------------------------------------------------")
 
