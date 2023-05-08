@@ -23,7 +23,7 @@ import pinocchio as pin
 np.set_printoptions(threshold=np.inf, precision = 5, linewidth = 1000, suppress = True)
 from termcolor import colored
 from base_controllers.utils.common_functions import plotJoint, plotEndeff
-import  params as conf
+from lab_exercises.lab_palopoli import  params as conf
 robotName = "ur5"
 
 # controller manager management
