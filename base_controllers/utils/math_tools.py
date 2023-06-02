@@ -4,12 +4,22 @@ Created on Tue Jun  5 09:43:27 2018
 
 @author: romeo orsolino
 """
-#to be compatible with python3
 from __future__ import print_function
+
+# Resolve paths
+import os
+import sys
+from pathlib import Path
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[4]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
 import numpy as np
 import scipy as sp
 import math as math
-from base_controllers.utils.utils import Utils
+from locosim.robot_control.base_controllers.utils.utils import Utils
 
 class LineCoeff2d:
     def __init__(self):

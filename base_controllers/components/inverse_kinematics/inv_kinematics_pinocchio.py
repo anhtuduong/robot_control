@@ -4,16 +4,22 @@ from __future__ import division
 from __future__ import print_function
 
 import os
+import sys
 
+# Resolve paths
+from pathlib import Path
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[5]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 import pinocchio
 from pinocchio.utils import *
 import yaml
 import math
 
-import sys
-sys.path.append('../utils')#allows to incude stuff on the same level
-from base_controllers.utils.utils import Utils
+from locosim.robot_control.base_controllers.utils.utils import Utils
 
 class robotKinematics():
     def __init__(self, robot, ee_frames):

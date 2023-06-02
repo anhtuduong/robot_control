@@ -4,10 +4,20 @@ Created on Thu Apr  2 18:07:44 2020
 
 @author: mfocchi
 """
+# Resolve paths
+import os
+import sys
+from pathlib import Path
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[4]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
 import os
 import psutil
 #from pinocchio.visualize import GepettoVisualizer
-from base_controllers.utils.custom_robot_wrapper import RobotWrapper
+from locosim.robot_control.base_controllers.utils.custom_robot_wrapper import RobotWrapper
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
@@ -22,7 +32,7 @@ import roslaunch
 import rosgraph
 from roslaunch.parent import ROSLaunchParent
 import copy
-from base_controllers.utils.utils import Utils
+from locosim.robot_control.base_controllers.utils.utils import Utils
 
 #from urdf_parser_py.urdf import URDF
 #make plot interactive

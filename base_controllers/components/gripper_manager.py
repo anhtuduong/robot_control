@@ -1,13 +1,19 @@
-# Description
-# File contains some necessary control algorithms for HyQ
-# Author: Michele Focchi
-# Date: 23-10-2022
+# Resolve paths
+import os
+import sys
+from pathlib import Path
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[4]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
 import math
 
 import rospkg
 import socket
 import numpy as np
-from base_controllers.components.filter import SecondOrderFilter
+from locosim.robot_control.base_controllers.components.filter import SecondOrderFilter
 import rospy as ros
 from std_srvs.srv import Trigger, TriggerRequest
 from  termcolor import  colored

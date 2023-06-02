@@ -182,12 +182,12 @@ class BaseControllerFixed(threading.Thread):
                                    additional_urdf_args=additional_urdf_args)
 
     def _receive_jstate(self, msg):
-         for msg_idx in range(len(msg.name)):          
-             for joint_idx in range(len(self.joint_names)):
-                 if self.joint_names[joint_idx] == msg.name[msg_idx]: 
-                     self.q[joint_idx] = msg.position[msg_idx]
-                     self.qd[joint_idx] = msg.velocity[msg_idx]
-                     self.tau[joint_idx] = msg.effort[msg_idx]
+        for msg_idx in range(len(msg.name)):          
+            for joint_idx in range(len(self.joint_names)):
+                if self.joint_names[joint_idx] == msg.name[msg_idx]: 
+                    self.q[joint_idx] = msg.position[msg_idx]
+                    self.qd[joint_idx] = msg.velocity[msg_idx]
+                    self.tau[joint_idx] = msg.effort[msg_idx]
 
 
     def send_des_jstate(self, q_des, qd_des, tau_ffwd):

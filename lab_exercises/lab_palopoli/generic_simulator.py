@@ -16,8 +16,8 @@ from base_controllers.base_controller_fixed import BaseControllerFixed
 from base_controllers.utils.common_functions import plotFrame, plotJoint
 
 import params as conf
-robotName = "myrobot" # needs to inherit BaseController
-#robotName = "ur5"  # needs to inherit BaseControllerFixed
+# robotName = "myrobot" # needs to inherit BaseController
+robotName = "ur5"  # needs to inherit BaseControllerFixed
 
 
 class GenericSimulator(BaseController):
