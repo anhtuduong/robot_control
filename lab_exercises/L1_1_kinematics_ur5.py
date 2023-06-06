@@ -2,9 +2,20 @@
 from __future__ import print_function
 import time as tm
 
-from base_controllers.utils.common_functions import *
-from base_controllers.utils.ros_publish import RosPub
-from base_controllers.components.inverse_kinematics.inv_kinematics_pinocchio import robotKinematics
+import os
+import sys
+
+# Resolve paths
+from pathlib import Path
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
+from locosim.robot_control.base_controllers.utils.common_functions import *
+from locosim.robot_control.base_controllers.utils.ros_publish import RosPub
+from locosim.robot_control.base_controllers.components.inverse_kinematics.inv_kinematics_pinocchio import robotKinematics
 import L1_conf as conf
 
 os.system("killall rosmaster rviz")
