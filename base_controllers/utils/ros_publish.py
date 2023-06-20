@@ -29,12 +29,14 @@ class RosPub():
             parent = roslaunch.parent.ROSLaunchParent(uuid, roslaunch_file)
             parent.start()
             ros.loginfo("RVIZ started")
-            # set joint state publisher
-            self.joint_pub = ros.Publisher("/joint_states", JointState, queue_size=1)
+        
 
         #init ros node to publish joint states and vis topics
         ros.init_node('sub_pub_node_python', anonymous=False, log_level=ros.FATAL)
 
+        # set joint state publisher
+        self.joint_pub = ros.Publisher("/joint_states", JointState, queue_size=1)
+        
         self.marker_pub = ros.Publisher('/vis' , MarkerArray, queue_size=1)
         self.arrow_pub = ros.Publisher('/arrow', MarkerArray, queue_size=1)
         self.polygon_pub = ros.Publisher('/support_polygon', MarkerArray, queue_size=1)
